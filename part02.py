@@ -1,107 +1,105 @@
-# 設定移動參數
-# 做好人物設定的class
+import pygame
 
-# import pygame
-
-# pygame.init()
+pygame.init()
 
 
-# SCREEN_WIDTH = 800
-# SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.8)
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = int(SCREEN_WIDTH * 0.8)
 
-# screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-# pygame.display.set_caption('射擊遊戲(取自YouTube Coding With Russ)')
+screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+pygame.display.set_caption('射擊遊戲(取自YouTube Coding With Russ)')
 
-# # set framerate
-# clock = pygame.time.Clock()
-# FPS = 60
+# set framerate
+clock = pygame.time.Clock()
+FPS = 60
 
-# # define player action variables
-# moving_left = False
-# moving_right = False
+# define player action variables
+moving_left = False
+moving_right = False
 
-# # define color
-# BG = (144, 201, 120)
+# define color
+BG = (144, 201, 120)
 
-# def draw_bg():
-#     screen.fill(BG)
+def draw_bg():
+    screen.fill(BG)
 
 
 
-# class Soldier(pygame.sprite.Sprite): #explain-124
-#     def __init__(self, char_type, x, y, scale, speed):
-#         pygame.sprite.Sprite.__init__(self)
-#         self.char_type = char_type
-#         self.speed = speed
-#         self.direction = 1
-#         self.flip = False
-#         img = pygame.image.load(f'img/{self.char_type}/Idle/0.png') #玩家小綠人
-#         self.image = pygame.transform.scale(img, (int(img.get_width() * scale), int(img.get_height() * scale) )) # 圖片尺寸調整 explain-78
-#         self.rect = self.image.get_rect()
-#         self.rect.center = (x, y) # 確保物體在正中間
+class Soldier(pygame.sprite.Sprite): #explain-124
+    def __init__(self, char_type, x, y, scale, speed):
+        pygame.sprite.Sprite.__init__(self)
+        self.char_type = char_type
+        self.speed = speed
+        self.direction = 1
+        self.flip = False
+        img = pygame.image.load(f'img/{self.char_type}/Idle/0.png') #玩家小綠人
+        self.image = pygame.transform.scale(img, (int(img.get_width() * scale), int(img.get_height() * scale) )) # 圖片尺寸調整 explain-78
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y) # 確保物體在正中間
 
-#     def move(self, moving_left, moving_right):
-#         # reset movement variable
-#         dx = 0
-#         dy = 0
-#         # assign movement variables if moving left or right
-#         if moving_left:
-#             dx = -self.speed
-#             self.flip = True # 往左走是反面
-#             self.direction = -1
-#         if moving_right:
-#             dx = self.speed
-#             self.flip = False # 往右走是正面
-#             self.direction = 1
+    def move(self, moving_left, moving_right):
+        # reset movement variable
+        dx = 0
+        dy = 0
+        # assign movement variables if moving left or right
+        if moving_left:
+            dx = -self.speed
+            self.flip = True # 往左走是反面
+            self.direction = -1
+        if moving_right:
+            dx = self.speed
+            self.flip = False # 往右走是正面
+            self.direction = 1
 
-#         # update rectangle position
-#         self.rect.x += dx
-#         self.rect.y += dy
+        # update rectangle position
+        self.rect.x += dx
+        self.rect.y += dy
     
-#     def draw(self): # 自己可以重複使用 像是player.draw()
-#         screen.blit(pygame.transform.flip(self.image, self.flip, False), self.rect) #explain-65
+    def draw(self): # 自己可以重複使用 像是player.draw()
+        screen.blit(pygame.transform.flip(self.image, self.flip, False), self.rect) #explain-65
 
 
 
-# player =Soldier('player', 200, 200, 3, 5)
-# enemy =Soldier('enemy', 400, 200, 3, 5)
+player =Soldier('player', 200, 200, 3, 5)
+enemy =Soldier('enemy', 400, 200, 3, 5)
 
 
-# run = True # explain-1
-# while run:
+run = True # explain-1
+while run:
 
-#     clock.tick(FPS)
+    clock.tick(FPS)
 
-#     draw_bg()
+    draw_bg()
     
-#     player.draw()
-#     enemy.draw()
+    player.draw()
+    enemy.draw()
 
-#     player.move(moving_left, moving_right)
+    player.move(moving_left, moving_right)
 
-#     for event in pygame.event.get():
-#         # quit game
-#         if event.type == pygame.QUIT:
-#             run = False
-#         # keyboard presses
-#         if event.type == pygame.KEYDOWN: # 鍵盤按下
-#             if event.key == pygame.K_a: #先去定義moving left 和 right 預設為 False
-#                 moving_left = True #要注意輸入法干擾
-#             if event.key == pygame.K_d:
-#                 moving_right = True
-#             if event.key == pygame.K_ESCAPE:
-#                 run = False
+    for event in pygame.event.get():
+        # quit game
+        if event.type == pygame.QUIT:
+            run = False
+        # keyboard presses
+        if event.type == pygame.KEYDOWN: # 鍵盤按下
+            if event.key == pygame.K_a: #先去定義moving left 和 right 預設為 False
+                moving_left = True #要注意輸入法干擾
+            if event.key == pygame.K_d:
+                moving_right = True
+            if event.key == pygame.K_ESCAPE:
+                run = False
 
-#         # keyboard presses
-#         if event.type == pygame.KEYUP: # 鍵盤放開
-#             if event.key == pygame.K_a:
-#                 moving_left = False
-#             if event.key == pygame.K_d:
-#                 moving_right = False
+        # keyboard presses
+        if event.type == pygame.KEYUP: # 鍵盤放開
+            if event.key == pygame.K_a:
+                moving_left = False
+            if event.key == pygame.K_d:
+                moving_right = False
                 
 
 
-#     pygame.display.update() # explain-54 #這句話要加上去東西才會跑出來
+    pygame.display.update() # explain-54 #這句話要加上去東西才會跑出來
+
 
 
 # pygame.quit()
