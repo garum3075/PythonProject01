@@ -7,7 +7,7 @@
 # 3. 設定class+def後達到可以重複使用
 # 遇到問題與解決方案
 # 1. 對python不熟的部分另開一個explain.py去做註解
-# 2. 原使用版本3.14版
+# 2. pygame 無法正確安裝
 # 解決過程
 # (1) 確認無法安裝原因(ERROR: Failed to build 'pygame' when getting requirements to build wheel)
 # (2) 確認pygame無法在3.14版執行後降版本去3.12
