@@ -18,3 +18,30 @@
 
 
 
+<table>
+  <thead>
+    <tr>
+      <th width="80px">編號</th>
+      <th width="200px">學習目標</th>
+      <th width="100px">狀態/備註</th>
+      <th>遇到問題與解決方案</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">01</td>
+      <td>安裝並運用 pygame</td>
+      <td align="center">✅</td>
+      <td>
+        1. 對 python 不熟的部分另開一個 explain.py 做註解<br>
+        2. pygame 無法正確安裝（降版本至 3.12）
+      </td>
+    </tr>
+    <tr>
+      <td align="center">02</td>
+      <td>定義位置</td>
+      <td align="center">✅</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
