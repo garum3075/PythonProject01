@@ -8,7 +8,7 @@
                 <th width="80px">編號</th>
                 <th width="150px">學習目標</th>
                 <th width="100px">狀態/備註</th>
-                <th width="450px">遇到問題與解決方案</th>
+                <th width="500px">遇到問題與解決方案</th>
             </tr>
         </thead>
         <tbody>
